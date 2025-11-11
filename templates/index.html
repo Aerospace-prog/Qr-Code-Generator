@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator Pro - Advanced Features</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="background-gradient"></div>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container">
+        <header class="header-section">
+            <div class="logo-badge"><i class="fas fa-star"></i> PRO</div>
+            <h1 class="main-title">QR Code Generator</h1>
+            <p class="subtitle">Create stunning, customizable QR codes with advanced features</p>
+            <div class="header-actions">
+                <button id="historyBtn" class="header-btn">
+                    <i class="fas fa-history"></i>
+                    <span>History</span>
+                </button>
+                <button id="batchBtn" class="header-btn">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Batch Generate</span>
+                </button>
+                <button id="templatesBtn" class="header-btn">
+                    <i class="fas fa-palette"></i>
+                    <span>Templates</span>
+                </button>
+            </div>
+        </header>
+
+        <div class="bento-grid">
+            <!-- Type Selection Card -->
+            <div class="bento-card type-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-bullseye"></i> Select Type</h2>
+                </div>
+                <div class="type-grid">
+                    <label class="type-option" data-type="url">
+                        <input type="radio" name="qrType" value="url" checked>
+                        <div class="type-icon"><i class="fas fa-link"></i></div>
+                        <span>URL</span>
+                    </label>
+                    <label class="type-option" data-type="text">
+                        <input type="radio" name="qrType" value="text">
+                        <div class="type-icon"><i class="fas fa-file-alt"></i></div>
+                        <span>Text</span>
+                    </label>
+                    <label class="type-option" data-type="email">
+                        <input type="radio" name="qrType" value="email">
+                        <div class="type-icon"><i class="fas fa-envelope"></i></div>
+                        <span>Email</span>
+                    </label>
+                    <label class="type-option" data-type="phone">
+                        <input type="radio" name="qrType" value="phone">
+                        <div class="type-icon"><i class="fas fa-phone"></i></div>
+                        <span>Phone</span>
+                    </label>
+                    <label class="type-option" data-type="location">
+                        <input type="radio" name="qrType" value="location">
+                        <div class="type-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <span>Location</span>
+                    </label>
+                    <label class="type-option" data-type="wifi">
+                        <input type="radio" name="qrType" value="wifi">
+                        <div class="type-icon"><i class="fas fa-wifi"></i></div>
+                        <span>WiFi</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Input Card -->
+            <div class="bento-card input-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-edit"></i> Enter Data</h2>
+                </div>
+                <div id="inputFields" class="input-container"></div>
+            </div>
+
+            <!-- Customization Card -->
+            <div class="bento-card custom-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-paint-brush"></i> Customize</h2>
+                </div>
+                
+                <div class="custom-section">
+                    <label class="section-label">Style</label>
+                    <div class="style-grid">
+                        <label class="style-option">
+                            <input type="radio" name="style" value="square" checked>
+                            <div class="style-preview square-preview"></div>
+                            <span>Square</span>
+                        </label>
+                        <label class="style-option">
+                            <input type="radio" name="style" value="rounded">
+                            <div class="style-preview rounded-preview"></div>
+                            <span>Rounded</span>
+                        </label>
+                        <label class="style-option">
+                            <input type="radio" name="style" value="circle">
+                            <div class="style-preview circle-preview"></div>
+                            <span>Circle</span>
+                        </label>
+                        <label class="style-option">
+                            <input type="radio" name="style" value="gapped">
+                            <div class="style-preview gapped-preview"></div>
+                            <span>Gapped</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="custom-section">
+                    <label class="section-label"><i class="fas fa-fill-drip"></i> Gradient Effect</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="gradientType" value="none" checked>
+                            <span>None</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="gradientType" value="linear">
+                            <span>Linear</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="gradientType" value="radial">
+                            <span>Radial</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="custom-section">
+                    <label class="section-label">Colors</label>
+                    <div class="color-picker-grid">
+                        <div class="color-picker-item">
+                            <label>Foreground</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" id="fgColor" value="#000000">
+                                <span class="color-hex">#000000</span>
+                            </div>
+                        </div>
+                        <div class="color-picker-item">
+                            <label>Background</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" id="bgColor" value="#FFFFFF">
+                                <span class="color-hex">#FFFFFF</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="color-picker-item" id="gradientColorSection" style="display: none; margin-top: 12px;">
+                        <label>Gradient Color</label>
+                        <div class="color-input-wrapper">
+                            <input type="color" id="gradientColor" value="#6366f1">
+                            <span class="color-hex">#6366F1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="custom-section">
+                    <label class="section-label"><i class="fas fa-border-style"></i> Frame Style</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="frameStyle" value="none" checked>
+                            <span>None</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="frameStyle" value="rounded">
+                            <span>Rounded</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="frameStyle" value="shadow">
+                            <span>Shadow</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="custom-section">
+                    <label class="section-label"><i class="fas fa-tag"></i> Add Label (Optional)</label>
+                    <input type="text" id="labelText" class="label-input" placeholder="e.g., Scan Me!">
+                </div>
+
+                <div class="custom-section">
+                    <label class="section-label">Error Correction</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="errorCorrection" value="L">
+                            <span>Low</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="errorCorrection" value="M" checked>
+                            <span>Medium</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="errorCorrection" value="H">
+                            <span>High</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="custom-section">
+                    <label class="section-label">Size: <span id="sizeValue" class="value-badge">10</span></label>
+                    <input type="range" id="boxSize" min="5" max="20" value="10" class="custom-range">
+                </div>
+
+                <button id="generateBtn" class="generate-btn">
+                    <i class="fas fa-magic"></i>
+                    <span>Generate QR Code</span>
+                </button>
+            </div>
+
+            <!-- Preview Card -->
+            <div class="bento-card preview-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-eye"></i> Preview</h2>
+                </div>
+                <div id="qrPreview" class="qr-preview">
+                    <div class="placeholder">
+                        <div class="placeholder-icon"><i class="fas fa-qrcode"></i></div>
+                        <p>Your QR code will appear here</p>
+                        <div class="placeholder-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="download-options" id="downloadOptions" style="display: none;">
+                    <button id="downloadBtn" class="download-btn primary">
+                        <i class="fas fa-download"></i>
+                        <span>Download PNG</span>
+                    </button>
+                    <div class="download-grid">
+                        <button id="downloadSVG" class="download-btn-small"><i class="fas fa-file-code"></i> SVG</button>
+                        <button id="copyBtn" class="download-btn-small"><i class="fas fa-copy"></i> Copy</button>
+                        <button id="shareBtn" class="download-btn-small"><i class="fas fa-share-alt"></i> Share</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Modal -->
+    <div id="historyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-history"></i> Recent QR Codes</h2>
+                <button class="close-btn" onclick="closeModal('historyModal')">&times;</button>
+            </div>
+            <div id="historyList" class="history-list"></div>
+        </div>
+    </div>
+
+    <!-- Batch Generate Modal -->
+    <div id="batchModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-layer-group"></i> Batch Generate</h2>
+                <button class="close-btn" onclick="closeModal('batchModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">Generate multiple QR codes at once. Enter one URL per line.</p>
+                <textarea id="batchInput" placeholder="https://example1.com&#10;https://example2.com&#10;https://example3.com" rows="10"></textarea>
+                <button id="batchGenerateBtn" class="generate-btn"><i class="fas fa-magic"></i> Generate All</button>
+                <div id="batchResults" class="batch-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Templates Modal -->
+    <div id="templatesModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-palette"></i> Quick Templates</h2>
+                <button class="close-btn" onclick="closeModal('templatesModal')">&times;</button>
+            </div>
+            <div class="templates-grid">
+                <div class="template-card" data-template="business">
+                    <div class="template-preview" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+                    <h3>Business Card</h3>
+                    <p>Professional gradient style</p>
+                </div>
+                <div class="template-card" data-template="social">
+                    <div class="template-preview" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
+                    <h3>Social Media</h3>
+                    <p>Vibrant and eye-catching</p>
+                </div>
+                <div class="template-card" data-template="minimal">
+                    <div class="template-preview" style="background: #000;"></div>
+                    <h3>Minimal</h3>
+                    <p>Clean black & white</p>
+                </div>
+                <div class="template-card" data-template="modern">
+                    <div class="template-preview" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
+                    <h3>Modern</h3>
+                    <p>Cool blue gradient</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
