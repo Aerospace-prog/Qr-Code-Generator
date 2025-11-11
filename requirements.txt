@@ -1,3 +1,4 @@
 qrcode[pil]
 Pillow
 Flask
+gunicorn==21.2.0

@@ -1,6 +1,19 @@
 # QR Code Generator Pro 🎨
 
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
+![Flask](https://img.shields.io/badge/Flask-3.0-green?style=for-the-badge&logo=flask)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Production-success?style=for-the-badge)
+
 A professional web-based QR code generator with advanced features and a stunning modern UI.
+
+[Live Demo](#) • [Features](#-unique-features) • [Installation](#installation) • [Deploy](#deployment)
+
+</div>
+
+---
 
 ## 🚀 Unique Features
 
@@ -112,4 +125,51 @@ Works best on:
 
 Some features like "Copy to Clipboard" and "Share" require modern browsers.
 
-Enjoy creating beautiful QR codes! 🎉
+## 🚀 Deployment
+
+Ready to deploy? Check out the [DEPLOYMENT.md](DEPLOYMENT.md) guide for detailed instructions on deploying to:
+- Render (Recommended)
+- Railway
+- Heroku
+- Vercel
+- And more!
+
+## 👨‍💻 Author
+
+**Kushagra**
+- Portfolio: [kushagra-portfolio-nine-ebon.vercel.app](https://kushagra-portfolio-nine-ebon.vercel.app/)
+- GitHub: [@Aerospace-prog](https://github.com/Aerospace-prog)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is [MIT](LICENSE) licensed.
+
+## ⭐ Show Your Support
+
+Give a ⭐️ if this project helped you!
+
+## 📧 Contact
+
+For questions or feedback, reach out through:
+- GitHub Issues
+- Portfolio Contact Form
+
+---
+
+<div align="center">
+
+Made with ❤️ by [Kushagra](https://kushagra-portfolio-nine-ebon.vercel.app/)
+
+**[⬆ back to top](#qr-code-generator-pro-)**
+
+</div>
